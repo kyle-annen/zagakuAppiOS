@@ -33,7 +33,6 @@ class DateTimeUtilities {
         let weekDaySymbol = formatter.weekdaySymbols[dayOfWeek]
         
         let subtitle: String = "\(weekDaySymbol) \(monthSymbol!) \(dayNumber), \(yearNumber) at \(hourNumber):\(minuteNumber)"
-        print("SUBTITLE: \(subtitle)")
         
         return subtitle
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class CalendarViewController: UITableViewController {
     
+    let dateTimeUtilities = DateTimeUtilities()
     let CellIdentifier = "Cell Identifier"
     var events = [Dictionary<String, Any>]()
 
@@ -48,20 +49,39 @@ class CalendarViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: CellIdentifier)
-        
+        setCellLabels(cell: cell, indexPath: indexPath)
+        return cell
+    }
+    
+    func setCellLabels(cell: UITableViewCell, indexPath: IndexPath) {
         if let event = events[indexPath.row] as? [String: Any] {
-            if let summary = event["summary"] as? String {
-                cell.textLabel?.text = summary
+            if let title = event["summary"] as? String {
+                cell.textLabel?.text = formatTitle(title: title)
             }
-            
             
             if let start = event["start"] as? [String: Any] {
                 if let dateTime = start["dateTime"] as? String {
-                    cell.detailTextLabel?.text = dateTime
+                    let parsedDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+                    cell.detailTextLabel?.text = dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
                 }
             }
         }
-        return cell
+    }
+    
+    func formatTitle(title: String) -> String {
+        let stringArray: [String] = title.components(separatedBy: " - ")
+        var title: String = ""
+        if stringArray.count >= 2 {
+            let presenter = stringArray[1]
+            title += presenter
+        }
+        if stringArray.count >= 3 {
+            let topic = stringArray[2]
+            title += " - " + topic
+        } else {
+            title += " - TBD"
+        }
+        return title
     }
     
     /*
