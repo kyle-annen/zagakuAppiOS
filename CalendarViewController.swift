@@ -48,8 +48,11 @@ class CalendarViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: CellIdentifier)
+        
+        let cell = UITableViewCell( style: UITableViewCellStyle.subtitle, reuseIdentifier: CellIdentifier)
+        
         setCellLabels(cell: cell, indexPath: indexPath)
+        
         return cell
     }
     
@@ -59,29 +62,30 @@ class CalendarViewController: UITableViewController {
                 cell.textLabel?.text = formatTitle(title: title)
             }
             
-            if let start = event["start"] as? [String: Any] {
-                if let dateTime = start["dateTime"] as? String {
-                    let parsedDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-                    cell.detailTextLabel?.text = dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
-                }
+            if let start = event["start"] as? [String: Any],
+                let dateTime = start["dateTime"] as? String {
+                
+                let parsedDate: Date =
+                    dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+                cell.detailTextLabel?.text =
+                    dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
             }
         }
     }
     
     func formatTitle(title: String) -> String {
-        let stringArray: [String] = title.components(separatedBy: " - ")
-        var title: String = ""
-        if stringArray.count >= 2 {
-            let presenter = stringArray[1]
-            title += presenter
+        let titleArray: [String] = title.components(separatedBy: " - ")
+        var modifiedTitle: String = ""
+        
+        switch titleArray.count {
+            case 1:
+                modifiedTitle = title
+            case 2:
+                modifiedTitle = titleArray[1] + " - TBD"
+            case _:
+                modifiedTitle = titleArray[1] + " - " + titleArray[2]
         }
-        if stringArray.count >= 3 {
-            let topic = stringArray[2]
-            title += " - " + topic
-        } else {
-            title += " - TBD"
-        }
-        return title
+        return modifiedTitle
     }
     
     /*
