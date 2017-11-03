@@ -17,7 +17,9 @@
 		538AD2871FA6A7E600F19D84 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */; };
 		538AD2891FA6A84200F19D84 /* DateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */; };
 		538AD28B1FA6A95A00F19D84 /* TestDateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD28A1FA6A95A00F19D84 /* TestDateTimeUtilities.swift */; };
+		539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */; };
 		53A0FA191FA6D24A00BB4F66 /* CalendarViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */; };
+		53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6C77A1FA949780081A0D6 /* EventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,9 @@
 		538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = ../CalendarViewController.swift; sourceTree = "<group>"; };
 		538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeUtilities.swift; sourceTree = "<group>"; };
 		538AD28A1FA6A95A00F19D84 /* TestDateTimeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDateTimeUtilities.swift; sourceTree = "<group>"; };
+		539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewHelper.swift; sourceTree = "<group>"; };
 		53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerTest.swift; sourceTree = "<group>"; };
+		53E6C77A1FA949780081A0D6 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +112,12 @@
 				538AD2841FA6A75000F19D84 /* gCalData.plist */,
 				538AD2561FA6A73700F19D84 /* AppDelegate.swift */,
 				538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */,
+				53E6C77A1FA949780081A0D6 /* EventViewController.swift */,
 				538AD25A1FA6A73700F19D84 /* Main.storyboard */,
 				538AD25D1FA6A73700F19D84 /* Assets.xcassets */,
 				538AD25F1FA6A73700F19D84 /* LaunchScreen.storyboard */,
 				538AD2621FA6A73700F19D84 /* Info.plist */,
+				539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */,
 				538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */,
 			);
 			path = ZagakuAppiOS;
@@ -272,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */,
+				539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */,
 				538AD2871FA6A7E600F19D84 /* CalendarViewController.swift in Sources */,
 				538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */,
 				538AD2891FA6A84200F19D84 /* DateTimeUtilities.swift in Sources */,

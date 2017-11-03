@@ -11,22 +11,19 @@ import UIKit
 class CalendarViewController: UITableViewController {
     
     let dateTimeUtilities = DateTimeUtilities()
+    let calendarViewHelper = CalendarViewHelper()
     let CellIdentifier = "Cell Identifier"
+    let segueEventViewController = "EventViewController"
     var events = [Dictionary<String, Any>]()
+    var senderIndexRow: Int = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Zagaku Schedule"
         
-        let path = Bundle.main.path(forResource: "gCalData", ofType: "plist")
-        
-        if let filePath = path {
-            let gCalRawData = (NSDictionary(contentsOfFile: filePath) as? [String: Any])!
-            if let gCalItems = gCalRawData["items"] {
-                events = gCalItems as! [Dictionary<String, Any>]
-            }
-        }
+        self.events = CalendarViewHelper().getPlistData(fileName: "gCalData")
         
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellIdentifier)
     }
@@ -57,37 +54,29 @@ class CalendarViewController: UITableViewController {
     }
     
     func setCellLabels(cell: UITableViewCell, indexPath: IndexPath) {
-        if let event = events[indexPath.row] as? [String: Any] {
-            if let title = event["summary"] as? String {
-                cell.textLabel?.text = formatTitle(title: title)
-            }
-            
-            if let start = event["start"] as? [String: Any],
-                let dateTime = start["dateTime"] as? String {
-                
-                let parsedDate: Date =
-                    dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-                cell.detailTextLabel?.text =
-                    dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
-            }
-        }
-    }
-    
-    func formatTitle(title: String) -> String {
-        let titleArray: [String] = title.components(separatedBy: " - ")
-        var modifiedTitle: String = ""
         
-        switch titleArray.count {
-            case 1:
-                modifiedTitle = title
-            case 2:
-                modifiedTitle = titleArray[1] + " - TBD"
-            case _:
-                modifiedTitle = titleArray[1] + " - " + titleArray[2]
-        }
-        return modifiedTitle
+        cell.textLabel?.text = calendarViewHelper
+            .getCellTitle( cell: cell, indexPath: indexPath, events: self.events)
+        
+        cell.detailTextLabel?.text = calendarViewHelper
+            .getCellSubtitle( cell: cell, indexPath: indexPath, events: self.events)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueEventViewController {
+            if let destinationViewController = segue.destination as? EventViewController {
+                    destinationViewController.event = events[senderIndexRow]
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cellIndex = tableView.indexPathForSelectedRow?.row as? Int {
+            senderIndexRow = cellIndex
+            self.performSegue(withIdentifier: segueEventViewController, sender: self)
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -121,16 +110,11 @@ class CalendarViewController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
     */
-
+   
 }

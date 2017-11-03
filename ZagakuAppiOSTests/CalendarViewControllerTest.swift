@@ -31,15 +31,23 @@ class CalendarViewControllerTest: XCTestCase {
     }
     
     func testFormatTitleParsesPartialTitle() {
-    let systemUnderTest = CalendarViewController()
+        let systemUnderTest = CalendarViewController()
         let testTitle = "Zagaku - Eric S"
         let expected = "Eric S - TBD"
         let actual = systemUnderTest.formatTitle(title: testTitle)
-        print("Title Actual: \(actual)")
         
         XCTAssert(actual == expected)    
     }
     
+    func testFormatTitleGivesFullTitleOnIncorrectFormat() {
+        let systemUnderTest = CalendarViewController()
+        let testTitle = "No Zagaku (moving)"
+        let expected = "No Zagaku (moving)"
+        let actual = systemUnderTest.formatTitle(title: testTitle)
+        
+        XCTAssert(actual == expected)
+        
+    }
     
     
     func testPerformanceExample() {
