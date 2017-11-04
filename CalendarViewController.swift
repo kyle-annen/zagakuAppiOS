@@ -20,10 +20,10 @@ class CalendarViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Zagaku Schedule"
-        
         self.events = CalendarViewHelper().getPlistData(fileName: "gCalData")
+        let calendarIcon = UIImage.init(named: "calendar")
+        tabBarItem = UITabBarItem.init(title: title, image: calendarIcon, tag: 1)
         
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellIdentifier)
     }

@@ -20,6 +20,7 @@
 		539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */; };
 		53A0FA191FA6D24A00BB4F66 /* CalendarViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */; };
 		53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6C77A1FA949780081A0D6 /* EventViewController.swift */; };
+		53FEA6511FAE26140064595E /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FEA6501FAE26140064595E /* calendar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewHelper.swift; sourceTree = "<group>"; };
 		53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerTest.swift; sourceTree = "<group>"; };
 		53E6C77A1FA949780081A0D6 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		53FEA6501FAE26140064595E /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		538AD2551FA6A73700F19D84 /* ZagakuAppiOS */ = {
 			isa = PBXGroup;
 			children = (
+				53FEA6501FAE26140064595E /* calendar.png */,
 				538AD2841FA6A75000F19D84 /* gCalData.plist */,
 				538AD2561FA6A73700F19D84 /* AppDelegate.swift */,
 				538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */,
@@ -252,6 +255,7 @@
 			files = (
 				538AD2611FA6A73700F19D84 /* LaunchScreen.storyboard in Resources */,
 				538AD2851FA6A75000F19D84 /* gCalData.plist in Resources */,
+				53FEA6511FAE26140064595E /* calendar.png in Resources */,
 				538AD25E1FA6A73700F19D84 /* Assets.xcassets in Resources */,
 				538AD25C1FA6A73700F19D84 /* Main.storyboard in Resources */,
 			);
