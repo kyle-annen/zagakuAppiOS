@@ -21,17 +21,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zagaku" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-bI-sCc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcK-bI-sCc">
                                 <rect key="frame" x="125.5" y="80" width="123.5" height="43.5"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="37"/>
-                                <nil key="textColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Zagaku">
+                                        <attributes>
+                                            <font key="NSFont" size="37" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Csf-9V-C19">
+                                <rect key="frame" x="50" y="253.5" width="274" height="161.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="座学">
+                                        <attributes>
+                                            <color key="NSColor" red="0.091376377015508159" green="0.56286813175388994" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="134" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.81655538546433504" green="0.83060383183229092" blue="0.90251741400362695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="6" height="5"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hcK-bI-sCc" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="60" id="APH-V5-OKL"/>
+                            <constraint firstItem="Csf-9V-C19" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Hv2-NQ-NfN"/>
                             <constraint firstItem="hcK-bI-sCc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ReX-DL-ZeS"/>
+                            <constraint firstItem="Csf-9V-C19" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lvs-6L-qLu"/>
                             <constraint firstItem="hcK-bI-sCc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wPj-Cd-bpn"/>
                         </constraints>
                     </view>

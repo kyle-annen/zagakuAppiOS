@@ -9,8 +9,10 @@
 import UIKit
 
 class EventViewController: UIViewController {
-    var event: Dictionary<String, Any?>!
+    var event: Dictionary<String, Any?> = [:]
+    let dateTimeUtilities: DateTimeUtilities = DateTimeUtilities()
     @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet var eventTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,12 +21,38 @@ class EventViewController: UIViewController {
             title = summary
         }
         
-
+        eventTextView.isUserInteractionEnabled = false
+        eventTextView.text = buildEventTextContent()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func buildEventTextContent() -> String {
+        var content: String = ""
+        let lineBreak: String = "\n\n"
+        
+        if let location = event["location"] as? String {
+            content += "Location\n\(location)"
+            content += lineBreak
+        }
+
+        if let startTime = event["start"] as? [String: Any],
+        let dateTime = startTime["dateTime"] as? String {
+            let date: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+            let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+            content += "Start Time\n\(formatedDateText)"
+            content += lineBreak
+        }
+        
+        if let gCalLink = event["htmlLink"] as? String {
+            content += "Link\n\(gCalLink)"
+            content += lineBreak
+        }
+        
+        return content
     }
     
 

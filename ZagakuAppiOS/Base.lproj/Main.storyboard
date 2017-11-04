@@ -29,25 +29,28 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chd-nb-eK2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104.8" y="185.75712143928038"/>
+            <point key="canvasLocation" x="998" y="186"/>
         </scene>
         <!--EventsViewController-->
         <scene sceneID="Uti-nK-x2u">
             <objects>
                 <viewController id="bku-kX-IsM" customClass="EventViewController" customModule="ZagakuAppiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="raH-Fy-dKO"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ohc-OW-ku9"/>
-                    </layoutGuides>
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lNv-Vf-Bg8">
+                    <textView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="7Th-iO-pco">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </scrollView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                     <navigationItem key="navigationItem" title="EventsViewController" id="ab9-mU-v55"/>
+                    <connections>
+                        <outlet property="eventTextView" destination="7Th-iO-pco" id="xJ2-DW-pHP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCO-YS-e47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.2" y="185.75712143928038"/>
+            <point key="canvasLocation" x="1788" y="186"/>
         </scene>
         <!--Item-->
         <scene sceneID="N6l-F8-C8E">
@@ -66,7 +69,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPe-Sj-VAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.80000000000001" y="185.75712143928038"/>
+            <point key="canvasLocation" x="206" y="186"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9EG-ok-w2c">
@@ -83,7 +86,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5XV-hZ-hyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278.39999999999998" y="185.30734632683661"/>
+            <point key="canvasLocation" x="-580" y="186"/>
         </scene>
     </scenes>
 </document>
