@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5382A24F1FAFB110001003E7 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */; };
 		538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2561FA6A73700F19D84 /* AppDelegate.swift */; };
 		538AD25C1FA6A73700F19D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AD25A1FA6A73700F19D84 /* Main.storyboard */; };
 		538AD25E1FA6A73700F19D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538AD25D1FA6A73700F19D84 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
 		538AD2531FA6A73700F19D84 /* ZagakuAppiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZagakuAppiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538AD2561FA6A73700F19D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		538AD25B1FA6A73700F19D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				53FEA6501FAE26140064595E /* calendar.png */,
 				538AD2841FA6A75000F19D84 /* gCalData.plist */,
 				538AD2561FA6A73700F19D84 /* AppDelegate.swift */,
+				5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */,
 				538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */,
 				53E6C77A1FA949780081A0D6 /* EventViewController.swift */,
 				538AD25A1FA6A73700F19D84 /* Main.storyboard */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */,
+				5382A24F1FAFB110001003E7 /* UpcomingEventsViewController.swift in Sources */,
 				539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */,
 				538AD2871FA6A7E600F19D84 /* CalendarViewController.swift in Sources */,
 				538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */,

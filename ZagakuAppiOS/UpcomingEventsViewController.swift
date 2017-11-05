@@ -1,27 +1,38 @@
 //
-//  CalendarViewController.swift
+//  UpcomingEventsViewController.swift
 //  ZagakuAppiOS
 //
-//  Created by Kyle Annen on 10/29/17.
+//  Created by Kyle Annen on 11/5/17.
 //  Copyright © 2017 Kyle Annen. All rights reserved.
 //
 
 import UIKit
 
-class CalendarViewController: UITableViewController {
-    
-    let dateTimeUtilities = DateTimeUtilities()
+class UpcomingEventsViewController: UITableViewController {
+    let dateTimeUtitlites = DateTimeUtilities()
     let calendarViewHelper = CalendarViewHelper()
-    let CellIdentifier = "Cell Identifier"
+    let cellIdentifier = "Cell Identifier"
     let segueEventViewController = "EventViewController"
     var events = [Dictionary<String, Any>]()
     var senderIndexRow: Int = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "All Zagakus"
-        self.events = CalendarViewHelper().getPlistData(fileName: "gCalData")
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellIdentifier)
+        title = "Upcoming Zagakus"
+        let allEvents = CalendarViewHelper().getPlistData(fileName: "gCalData")
+        
+        for event in allEvents {
+            if let start = event["start"] as? Dictionary<String, Any?>,
+            let dateTime = start["dateTime"] as? String {
+                let parsedStartTime = dateTimeUtitlites.convertISO8601Date(googleDateTime: dateTime)
+                let timeNow = Date()
+                if parsedStartTime > timeNow {
+                    events.append(event)
+                }
+            }
+        }
+        
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,18 +45,16 @@ class CalendarViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell( style: UITableViewCellStyle.subtitle, reuseIdentifier: CellIdentifier)
-        
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
+
         setCellLabels(cell: cell, indexPath: indexPath)
-        
+
         return cell
     }
     
@@ -61,7 +70,7 @@ class CalendarViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueEventViewController {
             if let destinationViewController = segue.destination as? EventViewController {
-                    destinationViewController.event = events[senderIndexRow]
+                destinationViewController.event = events[senderIndexRow]
             }
         }
     }
@@ -106,11 +115,6 @@ class CalendarViewController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     */
-   
+
 }
