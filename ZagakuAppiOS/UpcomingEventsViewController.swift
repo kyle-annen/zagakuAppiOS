@@ -76,7 +76,7 @@ class UpcomingEventsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cellIndex = tableView.indexPathForSelectedRow?.row as? Int {
+        if let cellIndex = tableView.indexPathForSelectedRow?.row {
             senderIndexRow = cellIndex
             self.performSegue(withIdentifier: segueEventViewController, sender: self)
         }

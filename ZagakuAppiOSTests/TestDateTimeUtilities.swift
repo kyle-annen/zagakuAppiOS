@@ -49,7 +49,8 @@ class TestDateTimeUtilitesTest: XCTestCase {
         let testGoogleDate: String = "2017-02-07T10:15:00-06:00"
         let testDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: testGoogleDate)
         let actual: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: testDate)
-        let expected: String = "Wednesday Feb 7, 2017 at 10:15"
+        print(actual)
+        let expected: String = "Wednesday Feb 7, 2017 at 10:15am"
         
         XCTAssert(actual == expected)
     

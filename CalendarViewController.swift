@@ -17,6 +17,7 @@ class CalendarViewController: UITableViewController {
     var events = [Dictionary<String, Any>]()
     var senderIndexRow: Int = 0
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "All Zagakus"

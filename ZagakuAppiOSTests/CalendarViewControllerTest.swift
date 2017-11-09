@@ -22,7 +22,7 @@ class CalendarViewControllerTest: XCTestCase {
     }
    
     func testFormatTitleParsesFullTitle() {
-        let systemUnderTest = CalendarViewController()
+        let systemUnderTest = CalendarViewHelper()
         let testTitle = "Zagaku - Eric S - Kata for great good"
         let expected = "Eric S - Kata for great good"
         let actual = systemUnderTest.formatTitle(title: testTitle)
@@ -31,7 +31,7 @@ class CalendarViewControllerTest: XCTestCase {
     }
     
     func testFormatTitleParsesPartialTitle() {
-        let systemUnderTest = CalendarViewController()
+        let systemUnderTest = CalendarViewHelper()
         let testTitle = "Zagaku - Eric S"
         let expected = "Eric S - TBD"
         let actual = systemUnderTest.formatTitle(title: testTitle)
@@ -40,7 +40,7 @@ class CalendarViewControllerTest: XCTestCase {
     }
     
     func testFormatTitleGivesFullTitleOnIncorrectFormat() {
-        let systemUnderTest = CalendarViewController()
+        let systemUnderTest = CalendarViewHelper()
         let testTitle = "No Zagaku (moving)"
         let expected = "No Zagaku (moving)"
         let actual = systemUnderTest.formatTitle(title: testTitle)
