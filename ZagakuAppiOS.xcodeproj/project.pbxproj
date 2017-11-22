@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5382A24F1FAFB110001003E7 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */; };
 		538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2561FA6A73700F19D84 /* AppDelegate.swift */; };
 		538AD25C1FA6A73700F19D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AD25A1FA6A73700F19D84 /* Main.storyboard */; };
 		538AD25E1FA6A73700F19D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538AD25D1FA6A73700F19D84 /* Assets.xcassets */; };
@@ -17,6 +18,10 @@
 		538AD2871FA6A7E600F19D84 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */; };
 		538AD2891FA6A84200F19D84 /* DateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */; };
 		538AD28B1FA6A95A00F19D84 /* TestDateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD28A1FA6A95A00F19D84 /* TestDateTimeUtilities.swift */; };
+		539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */; };
+		53A0FA191FA6D24A00BB4F66 /* CalendarViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */; };
+		53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E6C77A1FA949780081A0D6 /* EventViewController.swift */; };
+		53FEA6511FAE26140064595E /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FEA6501FAE26140064595E /* calendar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
 		538AD2531FA6A73700F19D84 /* ZagakuAppiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZagakuAppiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538AD2561FA6A73700F19D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		538AD25B1FA6A73700F19D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +59,10 @@
 		538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = ../CalendarViewController.swift; sourceTree = "<group>"; };
 		538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeUtilities.swift; sourceTree = "<group>"; };
 		538AD28A1FA6A95A00F19D84 /* TestDateTimeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDateTimeUtilities.swift; sourceTree = "<group>"; };
+		539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewHelper.swift; sourceTree = "<group>"; };
+		53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerTest.swift; sourceTree = "<group>"; };
+		53E6C77A1FA949780081A0D6 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		53FEA6501FAE26140064595E /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +113,17 @@
 		538AD2551FA6A73700F19D84 /* ZagakuAppiOS */ = {
 			isa = PBXGroup;
 			children = (
+				53FEA6501FAE26140064595E /* calendar.png */,
 				538AD2841FA6A75000F19D84 /* gCalData.plist */,
 				538AD2561FA6A73700F19D84 /* AppDelegate.swift */,
+				5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */,
 				538AD2861FA6A7E600F19D84 /* CalendarViewController.swift */,
+				53E6C77A1FA949780081A0D6 /* EventViewController.swift */,
 				538AD25A1FA6A73700F19D84 /* Main.storyboard */,
 				538AD25D1FA6A73700F19D84 /* Assets.xcassets */,
 				538AD25F1FA6A73700F19D84 /* LaunchScreen.storyboard */,
 				538AD2621FA6A73700F19D84 /* Info.plist */,
+				539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */,
 				538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */,
 			);
 			path = ZagakuAppiOS;
@@ -118,6 +132,7 @@
 		538AD26A1FA6A73700F19D84 /* ZagakuAppiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				53A0FA181FA6D24A00BB4F66 /* CalendarViewControllerTest.swift */,
 				538AD26B1FA6A73700F19D84 /* ZagakuAppiOSTests.swift */,
 				538AD26D1FA6A73700F19D84 /* Info.plist */,
 				538AD28A1FA6A95A00F19D84 /* TestDateTimeUtilities.swift */,
@@ -197,7 +212,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Kyle Annen";
 				TargetAttributes = {
 					538AD2521FA6A73700F19D84 = {
@@ -243,6 +258,7 @@
 			files = (
 				538AD2611FA6A73700F19D84 /* LaunchScreen.storyboard in Resources */,
 				538AD2851FA6A75000F19D84 /* gCalData.plist in Resources */,
+				53FEA6511FAE26140064595E /* calendar.png in Resources */,
 				538AD25E1FA6A73700F19D84 /* Assets.xcassets in Resources */,
 				538AD25C1FA6A73700F19D84 /* Main.storyboard in Resources */,
 			);
@@ -269,6 +285,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53E6C77B1FA949780081A0D6 /* EventViewController.swift in Sources */,
+				5382A24F1FAFB110001003E7 /* UpcomingEventsViewController.swift in Sources */,
+				539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */,
 				538AD2871FA6A7E600F19D84 /* CalendarViewController.swift in Sources */,
 				538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */,
 				538AD2891FA6A84200F19D84 /* DateTimeUtilities.swift in Sources */,
@@ -279,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A0FA191FA6D24A00BB4F66 /* CalendarViewControllerTest.swift in Sources */,
 				538AD26C1FA6A73700F19D84 /* ZagakuAppiOSTests.swift in Sources */,
 				538AD28B1FA6A95A00F19D84 /* TestDateTimeUtilities.swift in Sources */,
 			);
@@ -337,7 +357,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -345,7 +367,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -387,7 +413,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -395,7 +423,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -517,6 +549,7 @@
 				538AD27D1FA6A73700F19D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		538AD27E1FA6A73700F19D84 /* Build configuration list for PBXNativeTarget "ZagakuAppiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +558,7 @@
 				538AD2801FA6A73700F19D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		538AD2811FA6A73700F19D84 /* Build configuration list for PBXNativeTarget "ZagakuAppiOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +567,7 @@
 				538AD2831FA6A73700F19D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

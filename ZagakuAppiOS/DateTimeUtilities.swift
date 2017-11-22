@@ -25,15 +25,26 @@ class DateTimeUtilities {
         let dayNumber = calendar.component(.day, from: date)
         let yearNumber = calendar.component(.year, from: date)
         let hourNumber = calendar.component(.hour, from: date)
-        let minuteNumber = calendar.component(.minute, from: date)
-        
+        let minuteNumberPossibleShort = String(calendar.component(.minute, from: date))
+        var minuteNumber: String
+        if (minuteNumberPossibleShort.count == 1) {
+            minuteNumber = minuteNumberPossibleShort + "0"
+        } else {
+            minuteNumber = minuteNumberPossibleShort
+        }
+        var formattedTime: String
+        if (hourNumber <= 12) {
+            formattedTime = "\(hourNumber):\(minuteNumber)am"
+        } else {
+            formattedTime = "\(hourNumber - 12):\(minuteNumber)pm"
+        }
+
         let formatter = DateFormatter()
         let months = formatter.shortMonthSymbols
         let monthSymbol = months?[monthNumber-1]
         let weekDaySymbol = formatter.weekdaySymbols[dayOfWeek]
         
-        let subtitle: String = "\(weekDaySymbol) \(monthSymbol!) \(dayNumber), \(yearNumber) at \(hourNumber):\(minuteNumber)"
-        print("SUBTITLE: \(subtitle)")
+        let subtitle: String = "\(weekDaySymbol) \(monthSymbol!) \(dayNumber), \(yearNumber) at \(formattedTime)"
         
         return subtitle
     }
