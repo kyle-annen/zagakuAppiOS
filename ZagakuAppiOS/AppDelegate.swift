@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Lock
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

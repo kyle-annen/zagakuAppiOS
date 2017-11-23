@@ -1,0 +1,6 @@
+framework module Pods_ZagakuAppiOSTests {
+  umbrella header "Pods-ZagakuAppiOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
