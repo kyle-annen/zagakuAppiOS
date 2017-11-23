@@ -1,6 +1,0 @@
-framework module Pods_ZagakuAppiOSUITests {
-  umbrella header "Pods-ZagakuAppiOSUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
