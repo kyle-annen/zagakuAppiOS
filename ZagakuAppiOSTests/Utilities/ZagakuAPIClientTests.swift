@@ -19,7 +19,75 @@ class ZagakuServerAPIClientTests: XCTestCase {
         super.tearDown()
     }
     
-    func testRequest() {
+    func testGetRequestParametersWithOneParam() {
+        let sut = ZagakuServerAPIClient()
+        let requestDict: Dictionary<String, String> = ["time_period": "past"]
+        let result: String = sut.getRequestParameters(parameters: requestDict)
+        XCTAssertEqual(result, "time_period=past")
+    }
+    
+    func testGetRequestParametersWithTwoParam() {
+        let sut = ZagakuServerAPIClient()
+        let requestDict: Dictionary<String, String> = [
+            "time_period": "past",
+            "style":"funky"]
+        let result: String = sut.getRequestParameters(parameters: requestDict)
+        XCTAssertEqual(result, "style=funky&time_period=past")
+    }
+    
+    func testGetRequestParametersWithManyParam() {
+        let sut = ZagakuServerAPIClient()
+        let requestDict: Dictionary<String, String> = [
+            "time_period": "past",
+            "style":"funky",
+            "other_thing":"yeah",
+            "last_thing":"cool"]
+        let result: String = sut.getRequestParameters(parameters: requestDict)
+        XCTAssertEqual(result, "last_thing=cool&other_thing=yeah&style=funky&time_period=past")
+    }
+    
+    func testGetRequestUrlReturnsFormatedRequestURL() {
+        let sut = ZagakuServerAPIClient()
+        let parameters: Dictionary<String, String> = [
+            "time_period": "past",
+            "name": "fred",
+            "this": "that"]
+        let url = "http://test.com"
+        let result = sut.getRequestURL(baseURL: url, parameters: parameters)
+        XCTAssertEqual(result, "http://test.com/api/events?name=fred&this=that&time_period=past")
+    }
+    
+    func testGetResponseGetsData() {
         
+        let sut = ZagakuServerAPIClient()
+        let params: Dictionary<String, String> = ["time_period": "upcoming"]
+        let url = "https://localhost:3000/api/events"
+        let callback: ([ZagakuDate]) -> () = {
+            (arg: [ZagakuDate]) -> Void in
+            print(arg)
+            XCTAssert(true)
+        }
+        
+        sut.getCalendarDates( baseURL: url, parameters: params, completion: callback)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
