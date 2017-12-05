@@ -9,7 +9,7 @@
 import XCTest
 @testable import ZagakuAppiOS
 
-class TestDateTimeUtilitesTest: XCTestCase {
+class DateTimeUtilitesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

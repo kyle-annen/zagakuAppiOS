@@ -19,6 +19,7 @@ class UpcomingEventsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Upcoming Zagakus"
+        
         let allEvents = CalendarViewHelper().getPlistData(fileName: "gCalData")
         
         for event in allEvents {
