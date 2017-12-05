@@ -9,7 +9,7 @@
 import UIKit
 
 class EventViewController: UIViewController {
-    var event: Dictionary<String, Any?> = [:]
+    var event: ZagakuDate!
     let dateTimeUtilities: DateTimeUtilities = DateTimeUtilities()
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet var eventTextView: UITextView!
@@ -17,10 +17,10 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let summary = event["summary"] as? String {
+        if let summary: String = event.summary {
             title = summary
         }
-        
+
         eventTextView.isUserInteractionEnabled = false
         eventTextView.text = buildEventTextContent()
     }
@@ -34,20 +34,19 @@ class EventViewController: UIViewController {
         var content: String = ""
         let lineBreak: String = "\n\n"
         
-        if let location = event["location"] as? String {
+        if let location: String = event.location {
             content += "Location\n\(location)"
             content += lineBreak
         }
 
-        if let startTime = event["start"] as? [String: Any],
-        let dateTime = startTime["dateTime"] as? String {
+        if let dateTime: String = event.start_time {
             let date: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
             let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
             content += "Start Time\n\(formatedDateText)"
             content += lineBreak
         }
         
-        if let gCalLink = event["htmlLink"] as? String {
+        if let gCalLink: String = event.link {
             content += "Link\n\(gCalLink)"
             content += lineBreak
         }

@@ -13,29 +13,14 @@ class CalendarViewHelper {
     
     let dateTimeUtilities = DateTimeUtilities()
     
-    func getCellTitle(
-        cell: UITableViewCell,
-        indexPath: IndexPath,
-        events: [Dictionary<String, Any>]) -> String
-    {
-        
-        if let event = events[indexPath.row] as? [String: AnyObject],
-            let title = event["summary"] as? String {
-            return formatTitle(title: title)
-        } else {
-            return ""
-        }
-    }
-    
     func getCellSubtitle(
         cell: UITableViewCell,
         indexPath: IndexPath,
-        events: [Dictionary<String, Any>]) -> String
-    {
-        if let event = events[indexPath.row] as? [String: AnyObject],
-            let start = event["start"] as? [String: AnyObject],
-            let dateTime = start["dateTime"] as? String {
-            let parsedDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+        events: [ZagakuDate]) -> String {
+        let dateTime = events[indexPath.row].start_time
+        if let unwrappedDateTime: String = dateTime {
+            
+            let parsedDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: unwrappedDateTime)
             return dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
         } else {
             return ""

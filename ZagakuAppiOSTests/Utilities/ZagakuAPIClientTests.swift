@@ -52,7 +52,7 @@ class ZagakuServerAPIClientTests: XCTestCase {
             "time_period": "past",
             "name": "fred",
             "this": "that"]
-        let url = "http://test.com"
+        let url = "http://test.com/api/events"
         let result = sut.getRequestURL(baseURL: url, parameters: parameters)
         XCTAssertEqual(result, "http://test.com/api/events?name=fred&this=that&time_period=past")
     }
@@ -61,7 +61,7 @@ class ZagakuServerAPIClientTests: XCTestCase {
         
         let sut = ZagakuServerAPIClient()
         let params: Dictionary<String, String> = ["time_period": "upcoming"]
-        let url = "https://localhost:3000/api/events"
+        let url = "http://localhost:3000/api/events"
         let callback: ([ZagakuDate]) -> () = {
             (arg: [ZagakuDate]) -> Void in
             print(arg)

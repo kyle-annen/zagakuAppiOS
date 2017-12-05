@@ -9,19 +9,32 @@
 import UIKit
 
 class CalendarViewController: UITableViewController {
-    
     let dateTimeUtilities = DateTimeUtilities()
     let calendarViewHelper = CalendarViewHelper()
-    let CellIdentifier = "Cell Identifier"
+    let cellIdentifier = "Cell Identifier"
     let segueEventViewController = "EventViewController"
-    var events = [Dictionary<String, Any>]()
+    var events = [ZagakuDate]()
     var senderIndexRow: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "All Zagakus"
-        self.events = CalendarViewHelper().getPlistData(fileName: "gCalData")
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellIdentifier)
+
+        let cellLoadCallback: ([ZagakuDate]) -> Void = {
+            (allEvents: [ZagakuDate]) -> Void in
+            self.events = allEvents
+            self.tableView.register(
+                UITableViewCell.classForCoder(),
+                forCellReuseIdentifier: self.cellIdentifier)}
+        
+        let zagakuServerAPIClient = ZagakuServerAPIClient()
+        let params: Dictionary<String, String> = ["time_period": "past"]
+        let baseURL: String = "https://localhost:3000/api/events"
+        
+        zagakuServerAPIClient.getCalendarDates(
+            baseURL: baseURL,
+            parameters: params,
+            completion: cellLoadCallback)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +50,15 @@ class CalendarViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell( style: UITableViewCellStyle.subtitle, reuseIdentifier: CellIdentifier)
+        let cell = UITableViewCell( style: UITableViewCellStyle.subtitle, reuseIdentifier: cellIdentifier)
         setCellLabels(cell: cell, indexPath: indexPath)
         return cell
     }
     
     func setCellLabels(cell: UITableViewCell, indexPath: IndexPath) {
-        cell.textLabel?.text = calendarViewHelper
-            .getCellTitle( cell: cell, indexPath: indexPath, events: self.events)
+        
+        cell.textLabel?.text = events[indexPath.row].summary
+        
         cell.detailTextLabel?.text = calendarViewHelper
             .getCellSubtitle( cell: cell, indexPath: indexPath, events: self.events)
     }
@@ -58,10 +72,9 @@ class CalendarViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cellIndex = tableView.indexPathForSelectedRow?.row as? Int {
+        if let cellIndex = tableView.indexPathForSelectedRow?.row {
             senderIndexRow = cellIndex
             self.performSegue(withIdentifier: segueEventViewController, sender: self)
         }
     }
-
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		532DC06E1FD5B0AB00D9D8FB /* ZagakuAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DC06D1FD5B0AB00D9D8FB /* ZagakuAPIClient.swift */; };
 		532DC0701FD5B11500D9D8FB /* ZagakuAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532DC06F1FD5B11500D9D8FB /* ZagakuAPIClientTests.swift */; };
-		53616B3F1FD651A800D7AB53 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53616B3E1FD651A800D7AB53 /* Alamofire.framework */; };
 		53805E7B1FD5FC1A00DA9AEC /* ZagakuDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53805E7A1FD5FC1A00DA9AEC /* ZagakuDate.swift */; };
 		5382A24F1FAFB110001003E7 /* UpcomingEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */; };
 		538AD2571FA6A73700F19D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2561FA6A73700F19D84 /* AppDelegate.swift */; };
@@ -18,7 +17,6 @@
 		538AD2611FA6A73700F19D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538AD25F1FA6A73700F19D84 /* LaunchScreen.storyboard */; };
 		538AD26C1FA6A73700F19D84 /* ZagakuAppiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD26B1FA6A73700F19D84 /* ZagakuAppiOSTests.swift */; };
 		538AD2771FA6A73700F19D84 /* ZagakuAppiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2761FA6A73700F19D84 /* ZagakuAppiOSUITests.swift */; };
-		538AD2851FA6A75000F19D84 /* gCalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 538AD2841FA6A75000F19D84 /* gCalData.plist */; };
 		538AD2891FA6A84200F19D84 /* DateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */; };
 		538AD28B1FA6A95A00F19D84 /* DateTimeUtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538AD28A1FA6A95A00F19D84 /* DateTimeUtilitiesTests.swift */; };
 		539D1A2C1FA8AB4400651F57 /* CalendarViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */; };
@@ -48,7 +46,6 @@
 /* Begin PBXFileReference section */
 		532DC06D1FD5B0AB00D9D8FB /* ZagakuAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZagakuAPIClient.swift; sourceTree = "<group>"; };
 		532DC06F1FD5B11500D9D8FB /* ZagakuAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZagakuAPIClientTests.swift; sourceTree = "<group>"; };
-		53616B3E1FD651A800D7AB53 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		53805E7A1FD5FC1A00DA9AEC /* ZagakuDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZagakuDate.swift; sourceTree = "<group>"; };
 		5382A24E1FAFB110001003E7 /* UpcomingEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEventsViewController.swift; sourceTree = "<group>"; };
 		538AD2531FA6A73700F19D84 /* ZagakuAppiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZagakuAppiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53616B3F1FD651A800D7AB53 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +172,6 @@
 				538AD26A1FA6A73700F19D84 /* ZagakuAppiOSTests */,
 				538AD2751FA6A73700F19D84 /* ZagakuAppiOSUITests */,
 				538AD2541FA6A73700F19D84 /* Products */,
-				53616B3E1FD651A800D7AB53 /* Alamofire.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,7 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				538AD2611FA6A73700F19D84 /* LaunchScreen.storyboard in Resources */,
-				538AD2851FA6A75000F19D84 /* gCalData.plist in Resources */,
 				53FEA6511FAE26140064595E /* calendar.png in Resources */,
 				538AD25E1FA6A73700F19D84 /* Assets.xcassets in Resources */,
 				538AD25C1FA6A73700F19D84 /* Main.storyboard in Resources */,

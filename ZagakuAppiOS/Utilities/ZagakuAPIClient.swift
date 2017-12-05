@@ -7,43 +7,37 @@
 //
 
 import Foundation
-import Alamofire
 
 class ZagakuServerAPIClient {
 
     func getCalendarDates(
         baseURL: String,
         parameters: Dictionary<String, String>,
-        completion: @escaping ([ZagakuDate]?) -> Void) {
+        completion: @escaping ([ZagakuDate]) -> Void) {
         
-        let requestString = self.getRequestURL(baseURL: baseURL, parameters: parameters)
+        let urlString = self.getRequestURL(baseURL: baseURL, parameters: parameters)
+        let url = URL(string: urlString)
         
-        Alamofire.request(
-            URL(string: requestString)!,
-            method: .get,
-            parameters: parameters)
-        .validate()
-        .responseJSON { (response) -> Void in
-            guard response.result.isSuccess else {
-                print("Error while fetching Zagaku Dates: \(response.result.error)")
-                competion(nil)
-                return
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let zagakuDates = try decoder.decode([ZagakuDate].self, from: data)
+                    completion(zagakuDates)
+                } catch let error as NSError {
+                    print(error)
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
             }
-            
-            guard let dates = response.result.value as? [Any] else {
-                print("Malformed data recieved from Zagaku endpoint.")
-                completion(nil)
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let zagakuDates = try decoder.decode([ZagakuDate].self, from: response.result.value)
-            completion(dates)
         }
+        task.resume()
     }
 
-    func getRequestURL(baseURL: String,
-                       parameters: Dictionary<String, String>) -> String {
+    func getRequestURL(
+        baseURL: String,
+        parameters: Dictionary<String, String>) -> String {
+        
         let parametersString = self.getRequestParameters(parameters: parameters)
         return "\(baseURL)?\(parametersString)"
     }
