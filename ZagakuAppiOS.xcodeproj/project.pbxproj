@@ -60,7 +60,6 @@
 		538AD2721FA6A73700F19D84 /* ZagakuAppiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZagakuAppiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538AD2761FA6A73700F19D84 /* ZagakuAppiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZagakuAppiOSUITests.swift; sourceTree = "<group>"; };
 		538AD2781FA6A73700F19D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		538AD2841FA6A75000F19D84 /* gCalData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gCalData.plist; sourceTree = "<group>"; };
 		538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeUtilities.swift; sourceTree = "<group>"; };
 		538AD28A1FA6A95A00F19D84 /* DateTimeUtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeUtilitiesTests.swift; sourceTree = "<group>"; };
 		539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewHelper.swift; sourceTree = "<group>"; };
@@ -95,6 +94,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		531BDB701FD78DDC00E8A160 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				532DC06D1FD5B0AB00D9D8FB /* ZagakuAPIClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		531BDB711FD7940700E8A160 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				532DC06F1FD5B11500D9D8FB /* ZagakuAPIClientTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		532DC0661FD5ABDB00D9D8FB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,20 +129,11 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		532DC0681FD5AC5300D9D8FB /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				538AD2841FA6A75000F19D84 /* gCalData.plist */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
 		532DC0691FD5AC8800D9D8FB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				539D1A2B1FA8AB4400651F57 /* CalendarViewHelper.swift */,
 				538AD2881FA6A84200F19D84 /* DateTimeUtilities.swift */,
-				532DC06D1FD5B0AB00D9D8FB /* ZagakuAPIClient.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -152,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				538AD28A1FA6A95A00F19D84 /* DateTimeUtilitiesTests.swift */,
-				532DC06F1FD5B11500D9D8FB /* ZagakuAPIClientTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -192,7 +197,7 @@
 				532DC06A1FD5ACC600D9D8FB /* Images */,
 				532DC0661FD5ABDB00D9D8FB /* Controllers */,
 				532DC0671FD5ABF700D9D8FB /* Storyboards */,
-				532DC0681FD5AC5300D9D8FB /* Store */,
+				531BDB701FD78DDC00E8A160 /* Services */,
 				532DC0691FD5AC8800D9D8FB /* Utilities */,
 				538AD25D1FA6A73700F19D84 /* Assets.xcassets */,
 				538AD2621FA6A73700F19D84 /* Info.plist */,
@@ -207,6 +212,7 @@
 				532DC06B1FD5B06400D9D8FB /* Controllers */,
 				538AD26B1FA6A73700F19D84 /* ZagakuAppiOSTests.swift */,
 				538AD26D1FA6A73700F19D84 /* Info.plist */,
+				531BDB711FD7940700E8A160 /* Services */,
 				532DC06C1FD5B07200D9D8FB /* Utilities */,
 			);
 			path = ZagakuAppiOSTests;

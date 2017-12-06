@@ -18,14 +18,17 @@ class CalendarViewHelper {
         indexPath: IndexPath,
         events: [ZagakuDate]) -> String {
         let event = events[indexPath.row]
-        if let start_time = event.start_time {
-            let parsedDate = dateTimeUtilities.convertISO8601Date(
-            googleDateTime: start_time)
-            if let date: Date = parsedDate {
+        return formatDate(dateTime: event.start_time)
+    }
+    
+    func formatDate(dateTime: String?) -> String {
+        if let start_time = dateTime {
+            let parsedDate = dateTimeUtilities.convertISO8601Date(googleDateTime: start_time)
+            if let date = parsedDate {
                 return dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
             }
         }
-        return ""
+        return "Date uknown."
     }
     
     func formatTitle(title: String) -> String {
@@ -42,26 +45,4 @@ class CalendarViewHelper {
         }
         return modifiedTitle
     }
-    
-    func getPlistData(fileName: String) -> [Dictionary<String, Any>] {
-        let path = Bundle.main.path(forResource: fileName, ofType: "plist")
-        
-        if let filePath = path {
-            let gCalRawData = (NSDictionary(contentsOfFile: filePath) as? [String: Any])!
-            if let gCalItems = gCalRawData["items"] {
-                 return gCalItems as! [Dictionary<String, Any>]
-            }
-        }
-        return [Dictionary<String, Any>]()
-    }
 }
-
-
-
-
-
-
-
-
-
-

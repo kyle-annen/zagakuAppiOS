@@ -9,7 +9,7 @@
 import Foundation
 
 class ZagakuServerAPIClient {
-
+    
     func fetchApiData(
         baseURL: String,
         parameters: Dictionary<String, String>,
@@ -18,12 +18,13 @@ class ZagakuServerAPIClient {
         let urlString = self.getRequestURL(baseURL: baseURL, parameters: parameters)
         let url = URL(string: urlString)
         
-        let urlSession = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate: self as? URLSessionDelegate,
-            delegateQueue: nil)
+//        let urlSession = URLSession(
+//            configuration: URLSessionConfiguration.default,
+//            delegate: self as? URLSessionDelegate,
+//            delegateQueue: nil)
         
-        let task = urlSession.dataTask(with: url!) { (data, response, error) in
+//        let task = urlSession.dataTask(with: url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()

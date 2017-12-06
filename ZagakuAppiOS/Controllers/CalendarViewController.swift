@@ -23,10 +23,10 @@ class CalendarViewController: UITableViewController {
         let cellLoadCallback: ([ZagakuDate]) -> Void = {
             (allEvents: [ZagakuDate]) -> Void in
             self.events = allEvents
+            print(allEvents)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
         }
         
         let zagakuServerAPIClient = ZagakuServerAPIClient()
@@ -62,7 +62,7 @@ class CalendarViewController: UITableViewController {
         cell.textLabel?.text = events[indexPath.row].summary
         
         cell.detailTextLabel?.text = calendarViewHelper
-            .getCellSubtitle( cell: cell, indexPath: indexPath, events: self.events)
+            .getCellSubtitle(cell: cell, indexPath: indexPath, events: self.events)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

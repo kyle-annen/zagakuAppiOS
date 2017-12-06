@@ -10,15 +10,14 @@ import Foundation
 
 class DateTimeUtilities {
     
-    func convertISO8601Date(googleDateTime: String) -> Date? {
+    func convertISO8601Date(googleDateTime: String?) -> Date? {
+        if let dateTime = googleDateTime {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        if googleDateTime != nil {
-            return dateFormatter.date(from: googleDateTime)
-        } else {
-            return nil
+        return dateFormatter.date(from: dateTime)
         }
+        return nil
     }
     
     func formatDateForCalendarSubtitle(date: Date?) -> String {

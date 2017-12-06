@@ -10,7 +10,8 @@ import UIKit
 
 class EventViewController: UIViewController {
     var event: ZagakuDate!
-    let dateTimeUtilities: DateTimeUtilities = DateTimeUtilities()
+    var calendarViewHelper = CalendarViewHelper()
+
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet var eventTextView: UITextView!
     
@@ -39,8 +40,7 @@ class EventViewController: UIViewController {
         }
 
         if let dateTime = event.start_time {
-            let date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-            let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+            let formatedDateText = calendarViewHelper.formatDate(dateTime: dateTime)
             content += "Start Time\n\(formatedDateText)"
         }
 

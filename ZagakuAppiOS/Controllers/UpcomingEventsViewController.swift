@@ -39,7 +39,6 @@ class UpcomingEventsViewController: UITableViewController {
             baseURL: baseURL,
             parameters: params,
             completion: cellLoadCallback)
-        
     }
 
     override func didReceiveMemoryWarning() {
