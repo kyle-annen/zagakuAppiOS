@@ -17,9 +17,7 @@ class EventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let summary: String = event.summary {
-            title = summary
-        }
+        title = event.summary
 
         eventTextView.isUserInteractionEnabled = false
         eventTextView.text = buildEventTextContent()
@@ -34,23 +32,18 @@ class EventViewController: UIViewController {
         var content: String = ""
         let lineBreak: String = "\n\n"
         
-        if let location: String = event.location {
-            content += "Location\n\(location)"
-            content += lineBreak
-        }
+        let location = event.location
+        content += "Location\n\(location)"
+        content += lineBreak
 
-        if let dateTime: String = event.start_time {
-            let date: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-            let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
-            content += "Start Time\n\(formatedDateText)"
-            content += lineBreak
-        }
-        
-        if let gCalLink: String = event.link {
-            content += "Link\n\(gCalLink)"
-            content += lineBreak
-        }
-        
+        let dateTime: String = event.start_time
+        let date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+        let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+        content += "Start Time\n\(formatedDateText)"
+        content += lineBreak
+
+        content += lineBreak
+
         return content
     }
     

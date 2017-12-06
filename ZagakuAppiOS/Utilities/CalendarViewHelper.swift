@@ -17,11 +17,11 @@ class CalendarViewHelper {
         cell: UITableViewCell,
         indexPath: IndexPath,
         events: [ZagakuDate]) -> String {
-        let dateTime = events[indexPath.row].start_time
-        if let unwrappedDateTime: String = dateTime {
-            
-            let parsedDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: unwrappedDateTime)
-            return dateTimeUtilities.formatDateForCalendarSubtitle(date: parsedDate)
+        let event = events[indexPath.row]
+        let start_time = event.start_time
+        let parsedDate = dateTimeUtilities.convertISO8601Date(googleDateTime: start_time)
+        if let date: Date = parsedDate {
+            return dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
         } else {
             return ""
         }

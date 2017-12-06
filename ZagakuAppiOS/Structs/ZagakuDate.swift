@@ -10,10 +10,10 @@ import Foundation
 
 struct ZagakuDate: Codable {
     let id: Int
-    let calendar_id: String?
-    let start_time: String?
-    let end_time: String?
-    let summary: String?
+    let calendar_id: String
+    let start_time: String
+    let end_time: String
+    let summary: String
     let link: String?
     let location: String?
     let hangout_link: String?

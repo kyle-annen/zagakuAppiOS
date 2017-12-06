@@ -19,22 +19,27 @@ class UpcomingEventsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Upcoming Zagakus"
+        self.tableView.register(
+            UITableViewCell.classForCoder(),
+            forCellReuseIdentifier: self.cellIdentifier)
         
         let cellLoadCallback: ([ZagakuDate]) -> Void = {
             (allEvents: [ZagakuDate]) -> Void in
             self.events = allEvents
-            self.tableView.register(
-                UITableViewCell.classForCoder(),
-                forCellReuseIdentifier: self.cellIdentifier)}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
 
         let zagakuServerAPIClient = ZagakuServerAPIClient()
         let params: Dictionary<String, String> = ["time_period": "upcoming"]
-        let baseURL: String = "https://localhost:3000/api/events"
+        let baseURL: String = "http://localhost:3000/api/events"
         
-        zagakuServerAPIClient.getCalendarDates(
+        zagakuServerAPIClient.fetchApiData(
             baseURL: baseURL,
             parameters: params,
             completion: cellLoadCallback)
+        
     }
 
     override func didReceiveMemoryWarning() {

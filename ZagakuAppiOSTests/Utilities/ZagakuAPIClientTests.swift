@@ -68,7 +68,7 @@ class ZagakuServerAPIClientTests: XCTestCase {
             XCTAssert(true)
         }
         
-        sut.getCalendarDates( baseURL: url, parameters: params, completion: callback)
+        sut.request( baseURL: url, parameters: params, completion: callback)
     }
 }
 

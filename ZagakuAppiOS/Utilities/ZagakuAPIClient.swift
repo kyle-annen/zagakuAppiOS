@@ -10,20 +10,25 @@ import Foundation
 
 class ZagakuServerAPIClient {
 
-    func getCalendarDates(
+    func fetchApiData(
         baseURL: String,
         parameters: Dictionary<String, String>,
         completion: @escaping ([ZagakuDate]) -> Void) {
-        
+       
         let urlString = self.getRequestURL(baseURL: baseURL, parameters: parameters)
         let url = URL(string: urlString)
         
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        let urlSession = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate: self as? URLSessionDelegate,
+            delegateQueue: nil)
+        
+        let task = urlSession.dataTask(with: url!) { (data, response, error) in
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let zagakuDates = try decoder.decode([ZagakuDate].self, from: data)
-                    completion(zagakuDates)
+                    let deserializedResponse = try decoder.decode([ZagakuDate].self, from: data)
+                    completion(deserializedResponse)
                 } catch let error as NSError {
                     print(error)
                 }
@@ -33,7 +38,7 @@ class ZagakuServerAPIClient {
         }
         task.resume()
     }
-
+    
     func getRequestURL(
         baseURL: String,
         parameters: Dictionary<String, String>) -> String {

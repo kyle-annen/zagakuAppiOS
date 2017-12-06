@@ -29,9 +29,9 @@ class CalendarViewController: UITableViewController {
         
         let zagakuServerAPIClient = ZagakuServerAPIClient()
         let params: Dictionary<String, String> = ["time_period": "past"]
-        let baseURL: String = "https://localhost:3000/api/events"
+        let baseURL: String = "http://localhost:3000/api/events"
         
-        zagakuServerAPIClient.getCalendarDates(
+        zagakuServerAPIClient.fetchApiData(
             baseURL: baseURL,
             parameters: params,
             completion: cellLoadCallback)
