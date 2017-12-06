@@ -9,7 +9,7 @@
 import XCTest
 @testable import ZagakuAppiOS
 
-class TestDateTimeUtilitesTest: XCTestCase {
+class DateTimeUtilitesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -23,34 +23,37 @@ class TestDateTimeUtilitesTest: XCTestCase {
     
     func testConvertGoogleISO8601DateTime() {
         let calendar = Calendar.current
-        let testGoogleDate: String = "2017-02-07T10:15:00-06:00"
+        let testGoogleDate: String? = Optional("2017-12-21T16:15:00.000Z")
         let systemUnderTest = DateTimeUtilities()
         
-        let resultDate: Date = systemUnderTest
+        let resultDate = systemUnderTest
             .convertISO8601Date(googleDateTime: testGoogleDate)
+        if let unwrappedResultDate = resultDate {
+            let actualYear = calendar.component(.year, from: unwrappedResultDate)
+            let actualMonth = calendar.component(.month, from: unwrappedResultDate)
+            let actualDay = calendar.component(.day, from: unwrappedResultDate)
+            let actualHour = calendar.component(.hour, from: unwrappedResultDate)
+            let actualMinute = calendar.component(.minute, from: unwrappedResultDate)
+            let actualSecond = calendar.component(.second, from: unwrappedResultDate)
         
-        let actualYear = calendar.component(.year, from: resultDate)
-        let actualMonth = calendar.component(.month, from: resultDate)
-        let actualDay = calendar.component(.day, from: resultDate)
-        let actualHour = calendar.component(.hour, from: resultDate)
-        let actualMinute = calendar.component(.minute, from: resultDate)
-        let actualSecond = calendar.component(.second, from: resultDate)
-        
-        XCTAssert(actualYear == 2017)
-        XCTAssert(actualMonth == 2)
-        XCTAssert(actualDay == 7)
-        XCTAssert(actualHour == 10)
-        XCTAssert(actualMinute == 15)
-        XCTAssert(actualSecond == 00)
+            XCTAssert(actualYear == 2017)
+            XCTAssert(actualMonth == 12)
+            XCTAssert(actualDay == 21)
+            XCTAssert(actualHour == 10)
+            XCTAssert(actualMinute == 15)
+            XCTAssert(actualSecond == 00)
+        } else {
+            XCTAssert(false)
+        }
     }
     
     func testFormatDateForCalendarSubtitle() {
         let dateTimeUtilities = DateTimeUtilities()
-        let testGoogleDate: String = "2017-02-07T10:15:00-06:00"
-        let testDate: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: testGoogleDate)
+        let testGoogleDate: String? = Optional("2017-12-21T16:15:00.000Z")
+        let testDate = dateTimeUtilities.convertISO8601Date(googleDateTime: testGoogleDate)!
         let actual: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: testDate)
         print(actual)
-        let expected: String = "Wednesday Feb 7, 2017 at 10:15am"
+        let expected: String = "Friday Dec 21, 2017 at 10:15am"
         
         XCTAssert(actual == expected)
     

@@ -9,18 +9,17 @@
 import UIKit
 
 class EventViewController: UIViewController {
-    var event: Dictionary<String, Any?> = [:]
-    let dateTimeUtilities: DateTimeUtilities = DateTimeUtilities()
+    var event: ZagakuDate!
+    var calendarViewHelper = CalendarViewHelper()
+
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet var eventTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let summary = event["summary"] as? String {
-            title = summary
-        }
-        
+        title = event.summary
+
         eventTextView.isUserInteractionEnabled = false
         eventTextView.text = buildEventTextContent()
     }
@@ -34,24 +33,18 @@ class EventViewController: UIViewController {
         var content: String = ""
         let lineBreak: String = "\n\n"
         
-        if let location = event["location"] as? String {
+        
+        if let location = event.location {
             content += "Location\n\(location)"
             content += lineBreak
         }
 
-        if let startTime = event["start"] as? [String: Any],
-        let dateTime = startTime["dateTime"] as? String {
-            let date: Date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-            let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+        if let dateTime = event.start_time {
+            let formatedDateText = calendarViewHelper.formatDate(dateTime: dateTime)
             content += "Start Time\n\(formatedDateText)"
-            content += lineBreak
         }
-        
-        if let gCalLink = event["htmlLink"] as? String {
-            content += "Link\n\(gCalLink)"
-            content += lineBreak
-        }
-        
+
+
         return content
     }
     
