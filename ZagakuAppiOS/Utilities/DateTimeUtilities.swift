@@ -14,7 +14,7 @@ class DateTimeUtilities {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        if let date = googleDateTime as? Date {
+        if googleDateTime != nil {
             return dateFormatter.date(from: googleDateTime)
         } else {
             return nil

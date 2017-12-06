@@ -18,13 +18,14 @@ class CalendarViewHelper {
         indexPath: IndexPath,
         events: [ZagakuDate]) -> String {
         let event = events[indexPath.row]
-        let start_time = event.start_time
-        let parsedDate = dateTimeUtilities.convertISO8601Date(googleDateTime: start_time)
-        if let date: Date = parsedDate {
-            return dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
-        } else {
-            return ""
+        if let start_time = event.start_time {
+            let parsedDate = dateTimeUtilities.convertISO8601Date(
+            googleDateTime: start_time)
+            if let date: Date = parsedDate {
+                return dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+            }
         }
+        return ""
     }
     
     func formatTitle(title: String) -> String {

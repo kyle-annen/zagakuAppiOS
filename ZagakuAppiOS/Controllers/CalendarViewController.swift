@@ -23,9 +23,11 @@ class CalendarViewController: UITableViewController {
         let cellLoadCallback: ([ZagakuDate]) -> Void = {
             (allEvents: [ZagakuDate]) -> Void in
             self.events = allEvents
-            self.tableView.register(
-                UITableViewCell.classForCoder(),
-                forCellReuseIdentifier: self.cellIdentifier)}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+
+        }
         
         let zagakuServerAPIClient = ZagakuServerAPIClient()
         let params: Dictionary<String, String> = ["time_period": "past"]

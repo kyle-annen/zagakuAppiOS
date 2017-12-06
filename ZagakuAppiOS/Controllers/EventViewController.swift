@@ -32,17 +32,18 @@ class EventViewController: UIViewController {
         var content: String = ""
         let lineBreak: String = "\n\n"
         
-        let location = event.location
-        content += "Location\n\(location)"
-        content += lineBreak
+        
+        if let location = event.location {
+            content += "Location\n\(location)"
+            content += lineBreak
+        }
 
-        let dateTime: String = event.start_time
-        let date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
-        let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
-        content += "Start Time\n\(formatedDateText)"
-        content += lineBreak
+        if let dateTime = event.start_time {
+            let date = dateTimeUtilities.convertISO8601Date(googleDateTime: dateTime)
+            let formatedDateText: String = dateTimeUtilities.formatDateForCalendarSubtitle(date: date)
+            content += "Start Time\n\(formatedDateText)"
+        }
 
-        content += lineBreak
 
         return content
     }
